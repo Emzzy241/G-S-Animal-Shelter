@@ -1,0 +1,28 @@
+/* Adding the Css to website */
+.app-name{
+    color: rgba(255, 138, 102, 0.4);
+    margin-block-end: 3.0rem;
+    font-size: 10.0rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #f6f6;
+    color: rgba(69, 2, 69, 0.4);
+    
+}
+
+.app-name span{
+    color: #CCC;
+}
+
+body{
+    background-color: orange;
+}
+
+div#footer {
+    position:fixed;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    color:#CCC;
+    background:#333;
+    padding:8px;
+}

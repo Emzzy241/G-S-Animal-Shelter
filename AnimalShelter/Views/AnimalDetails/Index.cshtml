@@ -1,0 +1,36 @@
+@{
+    Layout = "_Layout";
+}
+
+@using AnimalShelter.Models;
+
+<h1>Animal Details</h1>
+
+@if(@Model.Count == 0)
+{
+    <h3>No Animal Detail has been added yet!</h3>
+}
+
+<ul>
+@foreach(AnimalDetail anim in Model)
+{
+    // Our index will now show both an anim and the name of its Animal!
+    <li>@Html.ActionLink($"{@anim.Name}", "Details", new { id = anim.AnimalDetailId}) | @anim.Animal.Type</li>
+}
+</ul>
+
+
+<button>@Html.ActionLink("Add new anim", "Create")</button>
+<br />
+<button>@Html.ActionLink("Home", "Index", "Home")</button>
+
+
+<style>
+    button{
+        background: rgb(96, 96, 202);
+        padding: 10px 20px;
+        color: white;
+        font-size: 1.2rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+</style>

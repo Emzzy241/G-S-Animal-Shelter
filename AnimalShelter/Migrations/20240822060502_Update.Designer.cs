@@ -3,6 +3,7 @@ using System;
 using AnimalShelter.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AnimalShelter.Migrations
 {
     [DbContext(typeof(AnimalShelterContext))]
-    partial class AnimalShelterContextModelSnapshot : ModelSnapshot
+    [Migration("20240822060502_Update")]
+    partial class Update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,7 +32,7 @@ namespace AnimalShelter.Migrations
 
                     b.HasKey("AnimalId");
 
-                    b.ToTable("AllAnimals");
+                    b.ToTable("Animals");
                 });
 
             modelBuilder.Entity("AnimalShelter.Models.AnimalDetail", b =>
@@ -39,7 +41,7 @@ namespace AnimalShelter.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("AnimalId")
+                    b.Property<int?>("AnimalId")
                         .HasColumnType("int");
 
                     b.Property<string>("Breed")
@@ -252,13 +254,9 @@ namespace AnimalShelter.Migrations
 
             modelBuilder.Entity("AnimalShelter.Models.AnimalDetail", b =>
                 {
-                    b.HasOne("AnimalShelter.Models.Animal", "Animal")
+                    b.HasOne("AnimalShelter.Models.Animal", null)
                         .WithMany("Animals")
-                        .HasForeignKey("AnimalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Animal");
+                        .HasForeignKey("AnimalId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

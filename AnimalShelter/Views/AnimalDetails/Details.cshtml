@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AnimalShelter.Models.AnimalDetail
+
+<h2>Animal Details</h2>
+<hr />
+<h6>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h6>
+<h6>@Html.DisplayNameFor(model => model.Date_of_Admittance): @Html.DisplayFor(model => model.Date_of_Admittance)<h6>
+<h6>@Html.DisplayNameFor(model => model.Breed): @Html.DisplayFor(model => model.Breed)<h6>
+<h6>@Html.DisplayNameFor(model => model.Animal): @Html.DisplayFor(model => model.Animal.Type)<h6>
+
+<p>@Html.ActionLink("Edit Animal Detail", "Edit", new { id = Model.AnimalDetailId })</p>
+<p>@Html.ActionLink("Delete Animal Detail", "Delete", new { id = Model.AnimalDetailId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>
+

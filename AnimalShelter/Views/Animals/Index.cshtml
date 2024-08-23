@@ -1,12 +1,40 @@
+@{
+    Layout = "_Layout";
+}
+
 @using AnimalShelter.Models;
 
-<title>List of Animals</title>
-<h3 class="app-name">Here is a list of all the animals in our Shelter</h3>
+<title>List of Animals in our Shelter</title>
+<br><br>
+<h5 class="app-name">Here is a list of all the animals in our Shelter Based on the Animal type</h5>
+
+@if(@Model.Count == 0)
+{
+    <h4>No animals have been added yet!</h4>
+}
+
+<ul>
+@foreach(Animal myAnimal in Model)
+{
+    <li>@Html.ActionLink($"{@myAnimal.Type}", "Details", new {id = myAnimal.AnimalId})</li>
+}
+
+
+<br />
+<br />
+<button >@Html.ActionLink("Add new animal", "Create")</button>
+<br />
+<br />
+<button >@Html.ActionLink("Home", "Index", "Home")</button>
 
 
 
 
 <style>
+   *{
+        text-decoration: none;
+
+    }
     .app-name{
         /* color: rgba(255, 138, 102, 0.4); */
         color: #fff;
@@ -23,6 +51,15 @@
         color: #fff;
         font-size: 1.5rem;
         margin-block-start: -7rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    button{
+        text-decoration: none;
+        background: rgb(96, 96, 202);
+        padding: 10px 20px;
+        color: white;
+        font-size: 1.0rem;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 

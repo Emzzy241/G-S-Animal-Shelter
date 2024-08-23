@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AnimalShelter.Models.AnimalDetail
+
+<h2>Edit</h2>
+
+<h4>Edit this AnimalDetail: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.AnimalDetailId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+  <br/>
+  <br/>
+  @Html.LabelFor(model => model.Date_of_Admittance)
+  @Html.EditorFor(model => model.Date_of_Admittance)
+  <br/>
+  <br/>
+
+  @Html.LabelFor(model => model.Breed)
+  @Html.EditorFor(model => model.Breed)
+  <br/>
+  <br/>
+
+  @Html.LabelFor(model => model.Animal)
+  @Html.DropDownList("AnimalId")
+  <br/>
+  <br/>
+
+  <input type="submit" value="Save" class="btn btn-dark"/>
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
